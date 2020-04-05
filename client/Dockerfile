@@ -1,10 +1,12 @@
-FROM apline:edge
-
-COPY requirements.txt /usr/src/app
-RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
-
-COPY templates/index.html /usr/src/app/templates
+FROM python:3.6
 
 EXPOSE 5000
 
-CMD ["python3", "/usr/src/app/app.py"]
+WORKDIR /client
+
+COPY requirements.txt /client
+RUN pip3 install -r requirements.txt
+
+COPY app.py /client
+CMD python3 app.py
+

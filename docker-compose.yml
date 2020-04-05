@@ -20,8 +20,8 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
 
-  admin:
-    image: yokjima/atm:client
+  client:
+    image: yokojima/atm:client
     links:
       - db
     depends_on:
